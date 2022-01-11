@@ -1,0 +1,18 @@
+Game flow
+- display main menu
+- start game
+- display all cards
+- start player turn
+  - draw 5 cards
+  - start action phase
+    - display action phase menu
+    - get input
+    - if play card, play card
+    - if not play card, carry on
+  - start buy phase
+    - display buy phase menu
+    - buy cards
+  - discard all cards
+- check game over else start player turn
+- display end game menu
+- display main menu

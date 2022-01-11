@@ -1,0 +1,87 @@
+MAIN MENU
+Welcome to dominion cli. Selection an option to begin
+1. Start a new game
+2. Quit
+
+NEW GAME MENU
+Starting a new game. Here are the cards that will be used:
+Format is [cost, quantity]
+
+Treasure Cards:
+[0c, ∞] Copper (1c)
+[3c, ∞] Silver (2c)
+[6c, ∞] Gold (3c)
+
+VP cards:
+[2c, 5] Something (1 VP)
+[5c, 5] Estate (3 VP)
+[8c, 5] Province (6 VP)
+
+Action Cards:
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+[#c, #] card_title (description)
+
+press any key to continue...
+
+GAME MENU
+# VP  :  ## Cards left in deck  :  ## Cards in discard pile
+
+ACTION PHASE MENU
+-- no action cards
+No more actions remaining. / You don't have any more action cards.
+Moving to the buy phase.
+
+Actions played:
+(None) / display cards played
+
+Your hand:
+card_title (description)
+card_title (description)
+card_title (description)
+card_title (description)
+card_title (description)
+
+press any key to continue...
+
+-- action cards
+Action phase. Choose a card to play
+
+Actions played:
+action_card_played_title (description)
+action_card_played_title (description)
+
+Coin available: #
+Buys available: #
+Actions remaining: #
+
+Your hand:
+1. card_title (description)
+2. card_title (description)
+non_action_card_title (description)
+non_action_card_title (description)
+non_action_card_title (description)
+
+0. skip to buy phase
+
+BUY PHASE MENU
+Buy phase. Select a card to buy. Format is as follows:
+[cost, number remaining, number in your deck]
+
+Buys available: #
+Coin available: #
+
+1. [x, x, x] card_title (description)
+2. [x, x, x] card_title (description)
+3. [x, x, x] card_title (description)
+
+0. Skip buy phase
+s. Show all cards / Show only cards I can buy

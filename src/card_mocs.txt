@@ -1,0 +1,11 @@
+Card Types
+  Treasure
+  Victory Point
+  Action
+
+
+Card attributes
+  name
+  description
+  cost
+  effects
