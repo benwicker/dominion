@@ -1,4 +1,5 @@
 use super::player::Player;
+use super::action_phase::ActionPhase;
 
 pub struct Game {
   player: Player,
@@ -6,8 +7,11 @@ pub struct Game {
 }
 
 impl Game {
-  pub fn new() {
-    
+  pub fn new() -> Game {
+    Game {
+      player: Player::new(),
+      turn: 0,
+    }
   }
 
   pub fn play(&mut self) {
@@ -21,15 +25,12 @@ impl Game {
       self.player.draw(5);
 
       // ACTION PHASE
-      // play all non action cards
-      // if player doesn't have an available action points or action cards in hand
-        // display action phase menu with press any key to continue to buy phase
-      // while player has available aciton points and action cards in hand
-        // display action phase menu with played cards and available
-        // get input
-        // if action card
-          // play
-        // if skip to buy phase, break
+      let mut action_phase = ActionPhase::new();
+      action_phase.perform_action_phase(&mut self.player);
+
+      // CLEAN UP
+      action_phase.discard_played_cards(&mut self.player.discard_pile);
+      self.player.play_non_action_cards_and_discard_unplayed_action_cards();
 
       // BUY PHASE
       // while user has buys display buy menu
@@ -39,13 +40,24 @@ impl Game {
       // if user doesn't have buys, display menu with press any key to continue
 
       // CLEAN UP PHASE
-      // discard all played cards
       // check for win condition
 
     }
   }
 
   pub fn is_game_over(&self) -> bool {
-    true
+    self.turn > 5
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test_play_game() {
+    let mut game = Game::new();
+
+    game.play();
   }
 }

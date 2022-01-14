@@ -10,17 +10,6 @@ pub mod ui;
 
 fn main() {  
     // display main menu
-    let mut quit = false;
-    while !quit {
-        // match main_menu::display() {
-        //     ui::GameActions::Quit => quit = true,
-        //     ui::GameActions::StartNewGame => {
-        //         play_game();
-        //     }
-        // }
-    }
-}
-
-fn play_game() {
-    println!("Starting a new game");
+    let mut game = game::Game::new();
+    game.play();
 }

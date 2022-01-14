@@ -80,9 +80,7 @@ impl Deck {
         
         if cards_remaining == 0 {
           self.shuffle_discard_into_draw_pile(discard_pile);
-        }
-
-        if amount > cards_remaining {
+        } else if amount > cards_remaining {
           drawn_cards = self.draw_cards(cards_remaining, None);
           self.shuffle_discard_into_draw_pile(discard_pile);
           amount -= cards_remaining;
@@ -104,6 +102,11 @@ impl Deck {
     for card in cards {
       self.cards.push(card);
     }
+  }
+
+  pub fn remove_card(&mut self, card: Card) -> Card {
+      let index = self.cards.iter().position(|c| c.name == card.name).unwrap();
+      self.cards.remove(index)
   }
 
   pub fn print(&self) {
