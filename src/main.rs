@@ -6,6 +6,8 @@ pub mod deck;
 pub mod game;
 pub mod action_phase;
 pub mod ui;
+pub mod buy_phase;
+pub mod supply;
 
 
 fn main() {  

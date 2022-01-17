@@ -1,8 +1,12 @@
 use super::player::Player;
 use super::action_phase::ActionPhase;
+use super::buy_phase as BuyPhase;
+use super::supply::Supply;
+use super::ui;
 
 pub struct Game {
   player: Player,
+  supply: Supply,
   turn: i32,
 }
 
@@ -10,6 +14,7 @@ impl Game {
   pub fn new() -> Game {
     Game {
       player: Player::new(),
+      supply: Supply::new(),
       turn: 0,
     }
   }
@@ -33,15 +38,13 @@ impl Game {
       self.player.play_non_action_cards_and_discard_unplayed_action_cards();
 
       // BUY PHASE
-      // while user has buys display buy menu
-        // get user input
-        // if buy, add card to discard pile (add vp points if applicable)
-        // if end turn, go to clean up phase
-      // if user doesn't have buys, display menu with press any key to continue
+      BuyPhase::perform_buy_phase(&mut self.player, &mut self.supply);
 
       // CLEAN UP PHASE
-      // check for win condition
-
+      self.player.reset_stats();
+      
+      // SHOW DEBUG INFO
+      ui::show_debug_info(&self.player);
     }
   }
 

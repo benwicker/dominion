@@ -2,14 +2,15 @@ use rand::thread_rng;
 use rand::seq::SliceRandom;
 use super::card::Card;
 
+#[derive(Clone)]
 pub struct Deck {
-  pub cards: Vec<Card>
+  pub cards: Vec<Card>,
 }
 
 impl Deck {
   pub fn new() -> Deck {
     Deck {
-      cards: Vec::new()
+      cards: Vec::new(),
     }
   }
 
@@ -27,7 +28,7 @@ impl Deck {
     let mut deck = Deck::new();
 
     for _n in 0..7 {
-     deck.cards.push(Card::copper()); 
+      deck.cards.push(Card::copper()); 
     }
 
     for _n in 0..3 {
@@ -113,6 +114,10 @@ impl Deck {
     for card in &self.cards {
       println!("{}", card.name);
     }
+  }
+
+  pub fn first(&self) -> Option<&Card> {
+    self.cards.first()
   }
 }
 

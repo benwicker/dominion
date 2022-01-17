@@ -138,6 +138,7 @@ mod tests {
       vp: 0,
       available_coin: 0,
       available_actions: 1,
+      available_buys: 1,
       draw_pile: Deck::new_player_deck(),
       discard_pile: Deck::new(),
       hand: hand,

@@ -4,6 +4,7 @@ use super::card::{Card, CardType};
 pub struct Player {
   pub available_coin: i32,
   pub available_actions: i32,
+  pub available_buys: i32,
   pub vp: i32,
   pub draw_pile: Deck,
   pub discard_pile: Deck,
@@ -16,6 +17,7 @@ impl Player {
       vp: 0,
       available_coin: 0,
       available_actions: 1,
+      available_buys :1,
       draw_pile: Deck::new_player_deck(),
       discard_pile: Deck::new(),
       hand: Deck::new(),
@@ -25,6 +27,10 @@ impl Player {
   pub fn draw(&mut self, amount: usize) {
     self.hand.add_cards(self.draw_pile.draw_cards(amount, Some(&mut self.discard_pile)));
     self.sort();
+  }
+
+  pub fn gain_card(&mut self, card: Card) {
+    self.discard_pile.add_cards(vec![card]);
   }
 
   pub fn sort(&mut self) {
@@ -52,6 +58,7 @@ impl Player {
   pub fn reset_stats(&mut self) {
     self.available_actions = 1;
     self.available_coin = 0;
+    self.available_buys = 1;
   }
 }
 
